@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('relatorios');
 });
 
 Route::resource('relatorios', '\App\Http\Controllers\RelatoriosController');
+Route::delete('relatorios/{relatorio}', '\App\Http\Controllers\RelatoriosController@destroy')->name('relatorios.destroy');
 

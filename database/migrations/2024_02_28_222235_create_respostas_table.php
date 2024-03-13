@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('pergunta_id');
             $table->string('resposta')->nullable();
             $table->string('link')->nullable();
-            $table->foreign('relatorio_id')->references('id')->on('relatorios');
+            $table->foreign('relatorio_id')->references('id')->on('relatorios')->onDelete('cascade');
             $table->foreign('pergunta_id')->references('id')->on('perguntas');
             $table->timestamps();
         });
