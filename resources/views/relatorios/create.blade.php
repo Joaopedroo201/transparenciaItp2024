@@ -64,11 +64,10 @@
 
 
 
-                    {{-- Câmara
+                    {{-- Câmara --}}
                     <div id="camara" style="display: none;">
-                        <form action="{{route('relatorios.store')}}" method="POST">
+                        <form action="{{route('relatorios.store')}}" id="camaraForm" method="POST">
                             <input type="hidden" name="user_id" value="1">
-
                             @csrf    
                         <h2>Cliente:</h2>
                         <select class="form-select" name="cliente_id" id="clienteC" required>
@@ -86,34 +85,36 @@
                                     <tr>
                                         <td  colspan="100%"><h3>{{$categoria->categoria}}</h3></td>
                                     </tr> 
-                                @foreach($perguntasC as $pergunta)   
+                                @foreach($perguntasC as $pergunta)  
+                                @if($pergunta->categoria_id == $categoria->num) 
                                 
                                 <input type="hidden" name="relatorio_id[]" value="{{$hash}}">               
                                 <tr>
                                     <td><label class="form-label" style="font-size: 20px">{{ $pergunta->pergunta }}:</label></td>    
                                     <td style="width: 350px">
-                                        <input type="hidden" name="perguntas_id[]" value="{{$pergunta->id}}">
-                                        <input type="hidden" style="padding-left: 0px;margin-left: 7px;" selected value=" " name="resp[{{$pergunta->id}}]">
-                                        <input type="radio" style="padding-left: 0px;margin-left: 7px;" value="Sim" name="resp[{{$pergunta->id}}]">
+                                        <input type="hidden" name="pergunta_id[]" value="{{$pergunta->id}}">
+                                        <input type="hidden" style="padding-left: 0px;margin-left: 7px;" selected value=" " name="resposta[{{$pergunta->id}}]">
+                                        <input type="radio" style="padding-left: 0px;margin-left: 7px;" value="Sim" name="resposta[{{$pergunta->id}}]">
                                         <label class="form-label" style="margin-left: 5px;">Sim</label>
-                                        <input type="radio" style="padding-left: 0px;margin-left: 7px;" value="Não" name="resp[{{$pergunta->id}}]">
+                                        <input type="radio" style="padding-left: 0px;margin-left: 7px;" value="Não" name="resposta[{{$pergunta->id}}]">
                                         <label class="form-label" style="margin-left: 4px;">Não</label><br>
                                         <label class="form-label" style="margin-left: 4px;"><strong>Link:</strong></label>
                                         <textarea name="link[]" id="link" cols="40" rows="2"></textarea>
                                         
                                     </td>
                                 </tr>
+                                @endif
                                 @endforeach 
                                 @endforeach  
                             </div>
-                            <button class="btn btn-success" type="submit" style="margin-top: 30px">Salvar</button>
                          </div>
 
                     </table>
+                    <button class="btn btn-success" type="submit" id="cadastrarC" style="margin-top: 30px">Salvar</button>
                 </div>
                 </div>
                 <br>
-            </form> --}}
+            </form>
         </div>
     </div>
 </div>
@@ -153,6 +154,12 @@ $(document).ready(function() {
     $('button[id="cadastrarP"]').on('click', function(){
         alert('Formulário Cadastrado com Sucesso!');
         $('#prefeituraForm').submit();
+    })
+})
+$(document).ready(function() {
+    $('button[id="cadastrarC"]').on('click', function(){
+        alert('Formulário Cadastrado com Sucesso!');
+        $('#camaraForm').submit();
     })
 })
 </script>
