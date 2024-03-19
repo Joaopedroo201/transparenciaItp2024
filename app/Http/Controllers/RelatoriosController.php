@@ -37,7 +37,6 @@ class RelatoriosController extends Controller
         // dd($request->all());
         $validacao = $request->validate([
             'id' => ['required', 'integer'],
-            'user_id' => ['required', 'integer'],
             'cliente_id' => ['required', 'string'],
             'relatorio_id.*' => ['nullable','integer'],
             'resp.*' => ['nullable','string'],
@@ -49,7 +48,7 @@ class RelatoriosController extends Controller
         $hash = strtotime($tempo);
         $relatorio = new Relatorios;
         $relatorio->id =  $validacao['id'];
-        $relatorio->user_id = $validacao['user_id'];
+        $relatorio->user_id = auth()->user()->id;
         $relatorio->cliente_id = $validacao['cliente_id'];
         if($relatorio->save()){        
             $relatorio_id = $request->relatorio_id ?? [];

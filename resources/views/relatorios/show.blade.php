@@ -16,35 +16,35 @@
                     extend: 'copy',
                     text: 'Copiar',
                     titleAttr: 'Copiar',
-                    title: 'Relatório de {{$relatorio->cliente->nome ?? "teste"}}',
-                    message: 'Relatório realizado por: {$relatorio->users->name ?? "teste"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
+                    title: 'Relatório de {{$relatorio->cliente->nome ?? "Cliente Não Encontrado"}}',
+                    message: 'Relatório realizado por: {$relatorio->user->name ?? "Usuário Não Encontrado"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
                 },
                 {
                     extend: 'csv',
                     text: 'CSV',
                     titleAttr: 'Exportar para CSV',
-                    title: 'Relatório de {{$relatorio->cliente->nome ?? "Teste"}}',
-                    message: 'Relatório realizado por: {$relatorio->users->name ?? "teste"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
+                    title: 'Relatório de {{$relatorio->cliente->nome ?? "Cliente Não Encontrado"}}',
+                    message: 'Relatório realizado por: {$relatorio->user->name ?? "Usuário Não Encontrado"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
                 },
                 {
                     extend: 'excel',
                     text: 'Excel',
                     titleAttr: 'Exportar para Excel',
-                    title: 'Relatório de {{$relatorio->cliente->nome ?? "teste"}}',
-                    message: 'Relatório realizado por: {$relatorio->users->name ?? "teste"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
+                    title: 'Relatório de {{$relatorio->cliente->nome ?? "Cliente Não Encontrado"}}',
+                    message: 'Relatório realizado por: {$relatorio->user->name ?? "Usuário Não Encontrado"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
                 },
                 {
                     extend: 'pdf',
                     text: 'PDF',
                     titleAttr: 'Exportar para PDF',
-                    title: 'Relatório de {{$relatorio->cliente->nome ?? "teste"}}',
-                    message: 'Relatório realizado por: {{$relatorio->users->name ?? "teste"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
+                    title: 'Relatório de {{$relatorio->cliente->nome ?? "Cliente Não Encontrado"}}',
+                    message: 'Relatório realizado por: {{$relatorio->user->name ?? "teste"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
                 },
                 {
                     extend: 'print',
                     text: 'Imprimir',
                     titleAttr: 'Imprimir',
-                    title: 'Relatório de {{$relatorio->cliente->nome ?? "teste"}}',
+                    title: 'Relatório de {{$relatorio->cliente->nome ?? "Cliente Não Encontrado"}}',
                     message: 'Relatório realizado por: {{$relatorio->users->name ?? "teste"}}\n Data de realização: {{date("d/m/Y",strtotime($relatorio->created_at))}}'
                 }
             ]

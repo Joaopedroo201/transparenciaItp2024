@@ -9,7 +9,6 @@
         <div class="col">
             <form style="border: 1px solid var(--bs-border-color);border-radius: 4px;box-shadow: 1px 1px 20px 2px rgb(200,200,200);padding: 17px;" action="{{route('relatorios.store')}}" id="prefeituraForm" method="POST">
                 @csrf
-                <input type="hidden" name="user_id" value="1">
                 <input type="hidden" name="id" value="{{$hash}}">
                 <div class="row">
                     <h2>Tipo Cliente</h2>
@@ -67,7 +66,6 @@
                     {{-- Câmara --}}
                     <div id="camara" style="display: none;">
                         <form action="{{route('relatorios.store')}}" id="camaraForm" method="POST">
-                            <input type="hidden" name="user_id" value="1">
                             @csrf    
                         <h2>Cliente:</h2>
                         <select class="form-select" name="cliente_id" id="clienteC" required>
