@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::middleware(['auth'])->group(function () {
 Route::get('/', function () {
     return redirect('relatorios');
 });
@@ -20,3 +20,16 @@ Route::get('/', function () {
 Route::resource('relatorios', '\App\Http\Controllers\RelatoriosController');
 Route::delete('relatorios/{relatorio}', '\App\Http\Controllers\RelatoriosController@destroy')->name('relatorios.destroy');
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+});
+
+require __DIR__.'/auth.php';
